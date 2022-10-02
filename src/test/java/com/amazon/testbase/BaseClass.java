@@ -1,4 +1,4 @@
-package com.hrm.testbase;
+package com.amazon.testbase;
 
 import java.time.Duration;
 
@@ -12,15 +12,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 	
 	public static WebDriver driver;
-	static String url = "https://hrm.neotechacademy.com/";
-	
+	static String url = "https://www.amazon.com/";
 	@Before
 	public void setUp() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get(url);
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.manage().window().maximize();
 	}
 	
 	@After
